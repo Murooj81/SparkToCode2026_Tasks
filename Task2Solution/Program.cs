@@ -6,12 +6,13 @@ namespace Task2Solution
     {
         static void Main(string[] args)
         {
+
             //1- Countdown Timer
             // Some Code To Solove The Task
 
             Console.WriteLine("Enter the countdown time: ");
             int countdownTime = int.Parse(Console.ReadLine());
-             
+
             for (int i = countdownTime; i >= 0; i--)
             {
                 Console.WriteLine(i);
@@ -46,7 +47,7 @@ namespace Task2Solution
 
             for (int i = 1; i <= 10; i++)
             {
-                Console.WriteLine(number + " * " + i +  " = " + (number * i));
+                Console.WriteLine(number + " * " + i + " = " + (number * i));
             }
 
             //////////////////////////////////////////////////////////////
@@ -68,26 +69,40 @@ namespace Task2Solution
 
             Console.WriteLine("Access granted!");
 
+            ////////////////////////////////////////////////////////////////
 
+            //5- Number Guessing Game
+            // Some Code To Solove The Task 
 
+            int secretNum = 18;
+            int attemptsCount = 0;
+            int currentGuess = 0;
 
+            do
+            {
+                Console.WriteLine("Guss the number: ");
+                currentGuess = int.Parse(Console.ReadLine());
+                attemptsCount++;
 
+                if (currentGuess > secretNum)
+                {
+                    Console.WriteLine("Too High");
+                }
+                else if (currentGuess < secretNum)
+                {
+                    Console.WriteLine("Too Low");
+                }
+                else
+                {
+                    Console.WriteLine("Correct! It took you " + attemptsCount + " attempts.");
+                }
 
+            } while (currentGuess != secretNum);
 
-
-
-
-
-
-
-
-
-
-
-
+            ////////////////////////////////////////////////////////////////////
+            
 
 
         }
     }
-         
 }
