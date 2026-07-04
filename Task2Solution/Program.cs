@@ -35,9 +35,21 @@ namespace Task2Solution
                 total += i;
             }
             Console.WriteLine("The final sum is:" + total);
-            
+
             //////////////////////////////////////////////////////
 
+            //3- Multiplication Table
+            // Some Code To Solove The Task
+
+            Console.WriteLine("Enter a number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine(number + " * " + i +  " = " + (number * i));
+            }
+
+            //////////////////////////////////////////////////////////////
 
 
 
