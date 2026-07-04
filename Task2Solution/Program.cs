@@ -161,9 +161,27 @@ namespace Task2Solution
             }
 
             ///////////////////////////////////////////////////////////////////////
-           
 
 
+            //8- Sum of Even Numbers Only
+            // Some Code To Solove The Task 
+
+            Console.WriteLine("Enter Even Number Only: ");
+            int evenNumber = int.Parse(Console.ReadLine());
+            int evenSum = 0;
+
+            for (int i = 1; i <= evenNumber; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    evenSum += i;
+                }
+            }
+
+            Console.WriteLine("The final sum of even numbers is: " + evenSum);
+             
+            /////////////////////////////////////////////////////////////////////////
+            
 
 
 
