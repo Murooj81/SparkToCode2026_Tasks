@@ -128,6 +128,63 @@ namespace Task2Solution
 
             //////////////////////////////////////////////////////////////////
 
+            //7- Repating Menu with Exit Option
+            // Some Code To Solove The Task 
+
+            bool exit = false;
+
+            while (!exit)
+            {
+                Console.WriteLine("Menu:");
+                Console.WriteLine("1. Option 1");
+                Console.WriteLine("2. Option 2");
+                Console.WriteLine("3. Exit");
+                Console.WriteLine("Enter your choice: ");
+                string choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "1":
+                        Console.WriteLine("You selected Option 1.");
+                        break;
+                    case "2":
+                        Console.WriteLine("You selected Option 2.");
+                        break;
+                    case "3":
+                        exit = true;
+                        Console.WriteLine("Exiting the menu.");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                }
+
+            }
+
+            ///////////////////////////////////////////////////////////////////////
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
