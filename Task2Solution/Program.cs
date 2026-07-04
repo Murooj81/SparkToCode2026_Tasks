@@ -100,7 +100,41 @@ namespace Task2Solution
             } while (currentGuess != secretNum);
 
             ////////////////////////////////////////////////////////////////////
-            
+
+            //6- Safe Division Calculator
+            // Some Code To Solove The Task 
+
+            try
+            {
+                Console.WriteLine("Enter the first number: ");
+                int num1 = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Enter the second number: ");
+                int num2 = int.Parse(Console.ReadLine());
+
+                int divisionResult = num1 / num2;
+                Console.WriteLine("The result of the division is: " + divisionResult);
+
+            }
+            catch (DivideByZeroException)
+            {
+
+                Console.WriteLine("Error: Cannot divide by zero.");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error: Input is not a valid number.");
+            }
+
+            //////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
 
 
         }
