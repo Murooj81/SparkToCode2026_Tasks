@@ -43,8 +43,19 @@
             Console.WriteLine($"Character count: {fullName.Length}");
 
             ///////////////////////////////////////////////////////////////
-            
 
+            //4. Subscription Enf Data 
+
+            Console.Write("Enter the number of free trial days: ");
+            int trialDays = Convert.ToInt32(Console.ReadLine());
+
+            DateTime startDate = DateTime.Today;
+            DateTime endDate = startDate.AddDays(trialDays);
+
+            Console.WriteLine($"The trial ends on: {endDate.ToString("yyyy-MM-dd")}");
+
+            ///////////////////////////////////////////////////////////////////
+            
 
 
 
