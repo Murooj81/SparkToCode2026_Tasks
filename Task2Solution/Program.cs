@@ -182,7 +182,7 @@ namespace Task2Solution
 
             /////////////////////////////////////////////////////////////////////////
 
-            //8- Validated Positive Number Input
+            //9- Validated Positive Number Input
             // Some Code To Solove The Task 
 
             int validPositiveNum = 0;
@@ -222,17 +222,13 @@ namespace Task2Solution
             }
             Console.WriteLine("The sum of numbers from 1 to " + validPositiveNum + " is: " + validatedLoopSum);
 
-            ///////////////////////////////////////////////
-            
+            ////////////////////////////////////////////////
 
 
+            //10- Simple ATM Simulation
+            // Some Code To Solove The Task 
 
-
-
-
-
-
-
+            /// I Don't Know how Slove It I Tryed. 
 
 
 
