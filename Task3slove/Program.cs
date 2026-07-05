@@ -191,6 +191,32 @@
             //11-One-Time Password (OTP) Generator
             // Idont't know how to do it
 
+            ///////////////////////////////////////////////////////////////////////
+
+            //12.Birthday Insights
+
+            try
+            {
+                Console.Write("Enter date of birth (yyyy-MM-dd): ");
+                DateTime birthDate = DateTime.Parse(Console.ReadLine());
+
+                int age = DateTime.Today.Year - birthDate.Year;
+
+                if (DateTime.Today.Month < birthDate.Month ||
+                    (DateTime.Today.Month == birthDate.Month &&
+                     DateTime.Today.Day < birthDate.Day))
+                {
+                    age--;
+                }
+
+                Console.WriteLine("Age: " + age);
+                Console.WriteLine("Born on: " + birthDate.DayOfWeek);
+            }
+            catch
+            {
+                Console.WriteLine("Invalid date.");
+            }
+
 
 
 
