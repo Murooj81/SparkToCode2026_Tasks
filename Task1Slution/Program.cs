@@ -125,6 +125,30 @@ namespace Task1Slution
             }
 
             ////////////////////////////////////////////
+
+            //Task 7 - Movie Ticket Pricing
+
+            Console.Write("Enter your age: ");
+            int movieAge = int.Parse(Console.ReadLine());
+
+            if (movieAge >= 0 && movieAge <= 12)
+            {
+                Console.WriteLine("Category: Children, Price: 2.000 OMR");
+            }
+            else if (movieAge >= 13 && movieAge <= 59)
+            {
+                Console.WriteLine("Category: Adults, Price: 5.000 OMR");
+            }
+            else if (movieAge >= 60)
+            {
+                Console.WriteLine("Category: Seniors, Price: 3.000 OMR");
+            }
+            else
+            {
+                Console.WriteLine("Invalid age entered.");
+            }
+
+            ///////////////////////////////////////////////////////////
             
 
 
