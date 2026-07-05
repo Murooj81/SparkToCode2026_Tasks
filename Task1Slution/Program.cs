@@ -102,10 +102,30 @@ namespace Task1Slution
             }
 
             ////////////////////////////////////////////////////////
-        
 
+            //Task 6 - Temperature Converter
 
+            Console.WriteLine("Enter Temperature in Celsius: ");
+            double celsius = double.Parse(Console.ReadLine());
 
+            double fahrenheit = (celsius * 9 / 5) + 32;
+            Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit);
+
+            if (celsius < 10)
+            {
+                Console.WriteLine("Colde");
+            }
+            else if (celsius >= 10 && celsius <= 30)
+            {
+                Console.WriteLine("Mild");
+            }
+            else
+            {
+                Console.WriteLine("Hot");
+            }
+
+            ////////////////////////////////////////////
+            
 
 
 
