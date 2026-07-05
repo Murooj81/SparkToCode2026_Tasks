@@ -20,21 +20,19 @@
             //////////////////////////////////////////////////////////////////////////
 
 
+            //2. Power & Root Explorer
 
+            Console.Write("Enter a number: ");
+            double number = Convert.ToDouble(Console.ReadLine());
 
+            double square = Math.Pow(number, 2);
+            double squareRoot = Math.Sqrt(number);
 
+            Console.WriteLine($"Square (power of 2): {square}");
+            Console.WriteLine($"Square root: {squareRoot}");
 
-
-
-
-
-
-
-
-
-
-
-
+            ///////////////////////////////////////////////////////////////////
+            
 
 
 
