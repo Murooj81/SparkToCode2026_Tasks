@@ -74,8 +74,35 @@ namespace Task1Slution
 
             //////////////////////////////////////////////////////
 
+            //Task 5 - Grade Letter Lookup
 
+            Console.WriteLine("Enter Your Grage Letter (A, B, C, D, F): ");
+            char grade = char.Parse(Console.ReadLine().ToUpper());
 
+            switch (grade)
+            {
+                case 'A':
+                    Console.WriteLine("Excellent!");
+                    break;
+                case 'B':
+                    Console.WriteLine("Good Job!");
+                    break;
+                case 'C':
+                    Console.WriteLine("You can do better!");
+                    break;
+                case 'D':
+                    Console.WriteLine("You need to work harder!");
+                    break;
+                case 'F':
+                    Console.WriteLine("You failed!");
+                    break;
+                default:
+                    Console.WriteLine("Invalid grade letter.");
+                    break;
+            }
+
+            ////////////////////////////////////////////////////////
+        
 
 
 
