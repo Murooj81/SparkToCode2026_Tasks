@@ -149,9 +149,30 @@ namespace Task1Slution
             }
 
             ///////////////////////////////////////////////////////////
-            
 
+            //Task 8 - Restaurant Bill with Membership Discount
 
+            Console.Write("Enter total bill amount (OMR): ");
+            double totalBill = double.Parse(Console.ReadLine());
+
+            Console.Write("Are you a loyalty member? (yes/no): ");
+            string memberInput = Console.ReadLine().ToLower();
+
+            bool isMember = (memberInput == "yes");
+            double discountAmount = 0.0;
+
+            if (totalBill > 20 && isMember)
+            {
+                discountAmount = totalBill * 0.15;
+            }
+
+            double finalBillAmount = totalBill - discountAmount;
+
+            Console.WriteLine("Original Bill: " + totalBill + " OMR");
+            Console.WriteLine("Discount Amount: " + discountAmount + " OMR");
+            Console.WriteLine("Final Amount to Pay: " + finalBillAmount + " OMR");
+
+            //////////////////////////////////////////////////////////////
 
 
 
