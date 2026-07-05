@@ -73,8 +73,37 @@
                 Console.WriteLine("Result: Fail");
             }
             //////////////////////////////////////////////////////////////
-            
 
+            //6- Password Strength Checker
+
+            Console.Write("Enter a password: ");
+            string password = Console.ReadLine();
+
+            bool isLongEnough = password.Length >= 8;
+            bool containsForbiddenWord = password.ToLower().Contains("password");
+
+            if (isLongEnough && !containsForbiddenWord)
+            {
+                Console.WriteLine("Password Strength: Strong");
+            }
+            else
+            {
+                Console.Write("Password Strength: Weak. Reason: ");
+                if (!isLongEnough && containsForbiddenWord)
+                {
+                    Console.WriteLine("It is less than 8 characters long and contains the forbidden word 'password'.");
+                }
+                else if (!isLongEnough)
+                {
+                    Console.WriteLine("It must be at least 8 characters long.");
+                }
+                else
+                {
+                    Console.WriteLine("It cannot contain the word 'password'.");
+                }
+            }
+
+            ///////////////////////////////////////////////////////////////
 
 
 
