@@ -1,4 +1,6 @@
-﻿namespace Task1Slution
+﻿using System.Drawing;
+
+namespace Task1Slution
 {
     internal class Program
     {
@@ -16,11 +18,24 @@
             Console.WriteLine("Age: " + age);
             Console.WriteLine("Hight: " + height);
             Console.WriteLine("Student: " + isStudent);
-            
+
             ////////////////////////////////////////////////
-            
 
+            //Task 2 - Rectangle Calculator
 
+            Console.WriteLine("Enter length: ");
+            double length = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter width: ");
+            double width = double.Parse(Console.ReadLine());
+
+            double area = length * width;
+            double perimeter = 2 * (length + width);
+
+            Console.WriteLine("Area: " + area);
+            Console.WriteLine("Perimeter: " + perimeter);
+
+            ////////////////////////////////////////////////////
 
 
 
