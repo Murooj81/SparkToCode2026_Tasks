@@ -32,7 +32,19 @@
             Console.WriteLine($"Square root: {squareRoot}");
 
             ///////////////////////////////////////////////////////////////////
+
+            //3. Name Formatter
+
+            Console.Write("Enter your full name: ");
+            string fullName = Console.ReadLine();
+
+            Console.WriteLine($"Uppercase: {fullName.ToUpper()}");
+            Console.WriteLine($"Lowercase: {fullName.ToLower()}");
+            Console.WriteLine($"Character count: {fullName.Length}");
+
+            ///////////////////////////////////////////////////////////////
             
+
 
 
 
