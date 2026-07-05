@@ -179,25 +179,51 @@ namespace Task2Solution
             }
 
             Console.WriteLine("The final sum of even numbers is: " + evenSum);
-             
+
             /////////////////////////////////////////////////////////////////////////
+
+            //8- Validated Positive Number Input
+            // Some Code To Solove The Task 
+
+            int validPositiveNum = 0;
+            bool isValidInput = false;
+
             
+            do
+            {
+                try
+                {
+                    Console.Write("Please enter a positive number: ");
+                    validPositiveNum = int.Parse(Console.ReadLine());
 
+                    
+                    if (validPositiveNum <= 0)
+                    {
+                        Console.WriteLine("Error: Number must be greater than zero.");
+                        isValidInput = false;
+                    }
+                    else
+                    {
+                        isValidInput = true;
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Error: Input is not a valid whole number.");
+                    isValidInput = false;
+                }
+            } while (!isValidInput);
 
+            
+            int validatedLoopSum = 0;
+            for (int i = 1; i <= validPositiveNum; i++)
+            {
+                validatedLoopSum += i;
+            }
+            Console.WriteLine("The sum of numbers from 1 to " + validPositiveNum + " is: " + validatedLoopSum);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+            ///////////////////////////////////////////////
+            
 
 
 
