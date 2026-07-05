@@ -105,7 +105,28 @@
 
             ///////////////////////////////////////////////////////////////
 
+            //7- Clean Name Comparator
 
+            Console.Write("Enter the name the first time: ");
+            string firstInput = Console.ReadLine();
+
+            Console.Write("Enter the name the second time: ");
+            string secondInput = Console.ReadLine();
+
+            string cleanFirst = firstInput.Trim().ToUpper();
+            string cleanSecond = secondInput.Trim().ToUpper();
+
+            if (cleanFirst == cleanSecond)
+            {
+                Console.WriteLine("Result: Match");
+            }
+            else
+            {
+                Console.WriteLine("Result: No Match");
+            }
+            
+            //////////////////////////////////////////////////////////////
+            
 
 
 
