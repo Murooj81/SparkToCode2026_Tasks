@@ -51,6 +51,30 @@ namespace Task1Slution
                 Console.WriteLine("The number is Odd.");
             }
 
+            ///////////////////////////////////////////////////
+
+            //Task 4 - Voting Eligibility
+
+            Console.Write("Enter your age: ");
+            int votingAge = int.Parse(Console.ReadLine());
+
+            Console.Write("Do you hold a valid national ID? (yes/no): ");
+            string idInput = Console.ReadLine().ToLower();
+
+            bool hasValidId = (idInput == "yes");
+
+            if (votingAge >= 18 && hasValidId)
+            {
+                Console.WriteLine("You are eligible to vote.");
+            }
+            else
+            {
+                Console.WriteLine("You are not eligible to vote.");
+            }
+
+            //////////////////////////////////////////////////////
+
+
 
 
 
