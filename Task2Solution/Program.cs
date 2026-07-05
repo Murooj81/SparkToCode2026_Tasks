@@ -228,7 +228,7 @@ namespace Task2Solution
             //10- Simple ATM Simulation
             // Some Code To Solove The Task 
 
-            /// I Don't Know how Slove It I Tryed. 
+            /// I Don't Know how To Slove It I Tryed. 
 
 
 
