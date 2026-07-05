@@ -131,20 +131,20 @@
 
             //try
             //{
-                //Console.Write("Enter membership start date (yyyy-MM-dd): ");
-                //DateTime startDate = DateTime.Parse(Console.ReadLine());
+            //Console.Write("Enter membership start date (yyyy-MM-dd): ");
+            //DateTime startDate = DateTime.Parse(Console.ReadLine());
 
-                //Console.Write("Enter membership days: ");
+            //Console.Write("Enter membership days: ");
 
-                //DateTime expiry = startDate.AddDays(Convert.ToInt32(Console.ReadLine()));
+            //DateTime expiry = startDate.AddDays(Convert.ToInt32(Console.ReadLine()));
 
-                //if (expiry >= DateTime.Today)
+            //if (expiry >= DateTime.Today)
 
-                   // Console.WriteLine("Active");
-                //else
-                    //Console.WriteLine("Expired");
+            // Console.WriteLine("Active");
+            //else
+            //Console.WriteLine("Expired");
 
-               // Console.WriteLine("Expiry Date: " + expiry.ToString("yyyy-MM-dd"));
+            // Console.WriteLine("Expiry Date: " + expiry.ToString("yyyy-MM-dd"));
             //}
             //catch
             //{
@@ -152,6 +152,18 @@
             //}
 
             ////////////////////////////////////////////////////////////////
+
+            //9-Round Up / Round Down Explorer 
+
+            Console.Write("Enter decimal number: ");
+            _ = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Nearest: " + Math.Round(number));
+            Console.WriteLine("Round Up: " + Math.Ceiling(number));
+            Console.WriteLine("Round Down: " + Math.Floor(number));
+
+            ////////////////////////////////////////////////////////////////
+           
 
 
 
