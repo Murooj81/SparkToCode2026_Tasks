@@ -55,6 +55,24 @@
             Console.WriteLine($"The trial ends on: {endDate.ToString("yyyy-MM-dd")}");
 
             ///////////////////////////////////////////////////////////////////
+
+            //5. rade Rounding System
+
+            Console.Write("Enter your raw exam score (decimal): ");
+            double rawScore = Convert.ToDouble(Console.ReadLine());
+
+            double roundedScore = Math.Round(rawScore, 0);
+            Console.WriteLine($"Rounded Score: {roundedScore}");
+
+            if (roundedScore >= 60)
+            {
+                Console.WriteLine("Result: Pass");
+            }
+            else
+            {
+                Console.WriteLine("Result: Fail");
+            }
+            //////////////////////////////////////////////////////////////
             
 
 
