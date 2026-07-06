@@ -60,11 +60,26 @@
             Console.WriteLine("2) Help");
             Console.WriteLine("3) Exit");
 
+            //////////////////////////////////////////////////////////////////////////////////////////////
 
+            //Task 5 - Even or Odd Function
 
+            Console.Write("Enter a number: ");
+            int inputNum = int.Parse(Console.ReadLine());
 
+            if (IsEven(inputNum))
+            {
+                Console.WriteLine("Even");
+            }
+            else
+            {
+                Console.WriteLine("Odd");
+            }
 
-
+            static bool IsEven(int number)
+            {
+                return number % 2 == 0;
+            }
 
 
 
