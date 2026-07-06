@@ -107,7 +107,39 @@
             }
             /////////////////////////////////////////////////////////////////////////////////////////////////
 
+            //Task 7 - Grade Letter Function
 
+            Console.Write("Enter student score (0-100): ");
+            int score = int.Parse(Console.ReadLine());
+
+            string gradeLetter = GetGradeLetter(score);
+            Console.WriteLine("Assigned Grade: " + gradeLetter);
+
+            static string GetGradeLetter(int score)
+            {
+                if (score >= 90)
+                {
+                    return "A";
+                }
+                else if (score >= 80)
+                {
+                    return "B";
+                }
+                else if (score >= 70)
+                {
+                    return "C";
+                }
+                else if (score >= 60)
+                {
+                    return "D";
+                }
+                else
+                {
+                    return "F";
+                }
+            }
+
+            //////////////////////////////////////////////////////////////////////////////
 
 
 
