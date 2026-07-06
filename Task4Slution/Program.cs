@@ -1,4 +1,6 @@
-﻿namespace Task4Slution
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Task4Slution
 {
     internal class Program
     {
@@ -183,8 +185,11 @@
 
             //Task 10 - Overloaded Area Calculator
 
+            //////////////////////////////////////////////////////////////////////////////////
 
+            //Task 11 - Function - Based Calculator
 
+            //////////////////////////////////////////////////////////////////////////////////
 
 
 
