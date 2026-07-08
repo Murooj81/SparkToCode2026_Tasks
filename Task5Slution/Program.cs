@@ -72,6 +72,31 @@
             ///
 
 
+            //Task 4 – Customer Service Queue
+
+            Queue<string> customers = new Queue<string>();
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write("Enter customer name: ");
+                customers.Enqueue(Console.ReadLine());
+            }
+
+            Console.WriteLine();
+
+            string servedCustomer = customers.Dequeue();
+
+            Console.WriteLine("Served Customer: " + servedCustomer);
+
+            Console.WriteLine("\nRemaining Customers:");
+
+            foreach (string customer in customers)
+            {
+                Console.WriteLine(customer);
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////
+            ///
 
 
 
