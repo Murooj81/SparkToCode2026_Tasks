@@ -26,6 +26,25 @@
             ///
 
 
+            //Task 2 - Dynamic To-Do List
+
+            List<string> tasks = new List<string>();
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("Enter task " + (i + 1) + ": ");
+                tasks.Add(Console.ReadLine());
+            }
+
+            Console.WriteLine("\nTo-Do List:");
+
+            foreach (string task in tasks)
+            {
+                Console.WriteLine("- " + task);
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////
+            ///
 
 
 
