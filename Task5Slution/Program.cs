@@ -166,6 +166,28 @@
             ///////////////////////////////////////////////////////////////////////////////
             ///
 
+            //Task 7 – High Score Podium
+
+            List<int> scores = new List<int>();
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("Enter score " + (i + 1) + ": ");
+                scores.Add(int.Parse(Console.ReadLine()));
+            }
+
+            scores.Sort();
+            scores.Reverse();
+
+            Console.WriteLine("\nTop 3 Scores");
+
+            Console.WriteLine("1st Place: " + scores[0]);
+            Console.WriteLine("2nd Place: " + scores[1]);
+            Console.WriteLine("3rd Place: " + scores[2]);
+
+            ///////////////////////////////////////////////////////////////////////////////
+            ///
+
 
 
 
