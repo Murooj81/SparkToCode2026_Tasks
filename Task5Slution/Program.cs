@@ -46,6 +46,30 @@
             ///////////////////////////////////////////////////////////////////////////////
             ///
 
+            //Task 3 - Browsing History Stack
+
+            Stack<string> browserHistory = new Stack<string>();
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write("Enter website URL: ");
+                browserHistory.Push(Console.ReadLine());
+            }
+
+            string lastPage = browserHistory.Pop();
+
+            Console.WriteLine("\nBack button pressed.");
+            Console.WriteLine("Removed page: " + lastPage);
+
+            Console.WriteLine("Current page:");
+
+            if (browserHistory.Count > 0)
+            {
+                Console.WriteLine(browserHistory.Peek());
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////
+            ///
 
 
 
