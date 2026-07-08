@@ -252,6 +252,63 @@
 
             ////////////////////////////////////////////////////////////////////////////////////        
 
+            //Task 10 – Print Queue Manager
+
+            Queue<string> printJobs = new Queue<string>();
+
+            string job = "";
+
+            while (job.ToLower() != "done")
+            {
+                Console.Write("Enter print job (done to finish): ");
+                job = Console.ReadLine();
+
+                if (job.ToLower() != "done")
+                {
+                    printJobs.Enqueue(job);
+                }
+            }
+
+            Console.WriteLine("\nPrint Queue:");
+
+            foreach (string item in printJobs)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.Write("\nEnter job to cancel: ");
+            string remove = Console.ReadLine();
+
+            printJobs = RemoveJob(printJobs, remove);
+
+            Console.WriteLine("\nQueue After Cancellation:");
+
+            foreach (string item in printJobs)
+            {
+                Console.WriteLine(item);
+            }
+
+        }
+
+        static Queue<string> RemoveJob(Queue<string> jobs, string removeJob)
+        {
+            Queue<string> newQueue = new Queue<string>();
+
+            while (jobs.Count > 0)
+            {
+                string job = jobs.Dequeue();
+
+                if (job != removeJob)
+                {
+                    newQueue.Enqueue(job);
+                }
+            }
+
+            return newQueue;
+
+            //////////////////////////////////////////////////////////////////////////////  
+            ///
+
 
 
 
