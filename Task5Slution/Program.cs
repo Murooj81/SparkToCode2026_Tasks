@@ -220,6 +220,37 @@
             //////////////////////////////////////////////////////////////////////////////
             ///
 
+            //Task 9 – Grade Analyzer with Functions  
+
+
+
+            //List<int> gradeList = new List<int>();
+
+            //Console.Write("How many grades? ");
+            // int number = int.Parse(Console.ReadLine());
+
+            //for (int i = 0; i < number; i++)
+            //{
+            //  Console.Write("Enter grade " + (i + 1) + ": ");
+            // gradeList.Add(int.Parse(Console.ReadLine()));
+            //}
+
+            //double avg = CalculateAverage(gradeList);
+
+            // Console.WriteLine("\nAverage = " + avg);
+
+            // int fail = FindFirstFailing(gradeList);
+            //
+            //if (fail == 0)
+            // {
+            //  Console.WriteLine("No failing grades.");
+            //}
+            // else
+            //{
+            // Console.WriteLine("First failing grade: " + fail);
+            // }
+
+            ////////////////////////////////////////////////////////////////////////////////////        
 
 
 
