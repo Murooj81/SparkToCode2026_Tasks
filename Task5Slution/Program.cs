@@ -188,6 +188,37 @@
             ///////////////////////////////////////////////////////////////////////////////
             ///
 
+            //Task 8 – Undo Last Action
+
+            Stack<string> actions = new Stack<string>();
+
+            string action = "";
+
+            while (action.ToLower() != "stop")
+            {
+                Console.Write("Enter action (type stop to finish): ");
+                action = Console.ReadLine();
+
+                if (action.ToLower() != "stop")
+                {
+                    actions.Push(action);
+                }
+            }
+
+            Console.WriteLine();
+
+            if (actions.Count > 0)
+                Console.WriteLine("Undo: " + actions.Pop());
+
+            if (actions.Count > 0)
+                Console.WriteLine("Undo: " + actions.Pop());
+
+            Console.WriteLine("\nRemaining Actions:");
+
+
+
+            //////////////////////////////////////////////////////////////////////////////
+            ///
 
 
 
