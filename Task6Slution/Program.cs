@@ -8,6 +8,8 @@ namespace Task6Slution
         public string HolderName { get; set; }
         public double Balance { get; set; }
 
+        public BankAccount() { } // Default constructor
+
         public void Deposit(double amount)
         {
             if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount));
@@ -27,6 +29,13 @@ namespace Task6Slution
         internal double CheckBalance()
         {
             return Balance;
+        }
+
+        public BankAccount(int accountNumber, string holderName, double balance)
+        {
+            AccountNumber = accountNumber;
+            HolderName = holderName;
+            Balance = balance;
         }
     }
 
@@ -84,35 +93,14 @@ namespace Task6Slution
 
         static void Main(string[] args)
         {
-            account1 = new BankAccount();
-            account1.AccountNumber = 1163;
-            account1.HolderName = "karim";
-            account1.Balance = 120;
+            account1 = new BankAccount(1163, "karim", 120);
+            account2 = new BankAccount(15203, "Ali", 63);
 
-            account2 = new BankAccount();
-            account2.AccountNumber = 15203;
-            account2.HolderName = "Ali";
-            account2.Balance = 63;
+            student1 = new() { Name = "Ali", Address = "Muscat", Grade = 65 };
+            student2 = new() { Name = "Ahmed", Address = "Muscat", Grade = 70 };
 
-            student1 = new Student();
-            student1.Name = "Ali";
-            student1.Address = "Muscat";
-            student1.Grade = 65;
-
-            student2 = new Student();
-            student2.Name = "Ahmed";
-            student2.Address = "Muscat";
-            student2.Grade = 70;
-
-            product1 = new Product();
-            product1.ProductName = "Wireless Mouse";
-            product1.Price = 5.500;
-            product1.StockQuantity = 50;
-
-            product2 = new Product();
-            product2.ProductName = "Mechanical Keyboard";
-            product2.Price = 15.750;
-            product2.StockQuantity = 20;
+            product1 = new() { ProductName = "Wireless Mouse", Price = 5.500, StockQuantity = 50 };
+            product2 = new() { ProductName = "Mechanical Keyboard", Price = 15.750, StockQuantity = 20 };
 
             bool exit = false;
             while (!exit)
@@ -168,27 +156,28 @@ namespace Task6Slution
                         HandleCase8();
                         break;
                     case "9": 
-                        //HandleCase9(); 
+                        HandleCase9(); 
                         break;
                     case "10": 
-                        //HandleCase10(); 
+                        HandleCase10(); 
                         break;
                     case "11": 
-                       // HandleCase11(); 
-                        break;
+                       HandleCase11(); 
+                       break;
                     case "12":
-                       // HandleCase12(); 
-                        break;
+                       HandleCase12(); 
+                       break;
                     case "13":
-                    // HandleCase13(); 
+                       HandleCase13();
+                       break;
                     case "14":
-                        //HandleCase14();
+                        HandleCase14();
                         break;
                     case "15":
-                        //HandleCase15();
+                        HandleCase15();
                         break;
                     case "16": 
-                        //HandleCase16();
+                        HandleCase16();
                         break;
                     case "17":
                         //HandleCase17();
@@ -592,7 +581,19 @@ namespace Task6Slution
             }
         }
 
+        //Case 16 - Quick Account Opening
+        static void HandleCase16()
+        {
+            Console.Write("Enter new Account Number: ");
+            int.TryParse(Console.ReadLine(), out int num);
+            Console.Write("Enter Holder Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Enter Starting Balance: ");
+            double.TryParse(Console.ReadLine(), out double bal);
 
+            BankAccount brandNewAcc = new(num, name, bal);
+            brandNewAcc.CheckBalance();
+        }
 
 
 
