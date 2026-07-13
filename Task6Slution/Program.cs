@@ -118,6 +118,17 @@ namespace Task6Slution
                 Console.WriteLine("6. Register a Student");
                 Console.WriteLine("7. Compare Two Account Balances");
                 Console.WriteLine("8. Restock Product & Stock Level Check");
+                Console.WriteLine("9. Transfer Between Accounts");
+                Console.WriteLine("10. Update Student Grade (Validated)");
+                Console.WriteLine("11. Student Report Card");
+                Console.WriteLine("12. Account Health Status");
+                Console.WriteLine("13. Bulk Sale with Revenue");
+                Console.WriteLine("14. Scholarship Eligibility Check");
+                Console.WriteLine("15. Full Balance Top-Up Flow");
+                Console.WriteLine("16. Quick Account Opening");
+                Console.WriteLine("17. Total Students Counter");
+                Console.WriteLine("18. Overdrawn Account Check");
+                Console.WriteLine("19. Set Student Security PIN");
                 Console.WriteLine("20. Exit");
                 Console.Write("Select an option: ");
                 string choice = Console.ReadLine();
@@ -140,13 +151,45 @@ namespace Task6Slution
                         HandleCase5();
                         break;
                     case "6":
-                        //HandleCase6();
+                        HandleCase6();
                         break;
                     case "7":
-                        // HandleCase7();
+                        HandleCase7();
                         break;
                     case "8":
-                        // HandleCase8();
+                        HandleCase8();
+                        break;
+                    case "9": 
+                        //HandleCase9(); 
+                        break;
+                    case "10": 
+                        //HandleCase10(); 
+                        break;
+                    case "11": 
+                       // HandleCase11(); 
+                        break;
+                    case "12":
+                       // HandleCase12(); 
+                        break;
+                    case "13":
+                    // HandleCase13(); 
+                    case "14":
+                        //HandleCase14();
+                        break;
+                    case "15":
+                        //HandleCase15();
+                        break;
+                    case "16": 
+                        //HandleCase16();
+                        break;
+                    case "17":
+                        //HandleCase17();
+                        break;
+                    case "18": 
+                        //HandleCase18();
+                        break;
+                    case "19":
+                        //HandleCase19();
                         break;
                     case "20":
                         exit = true;
