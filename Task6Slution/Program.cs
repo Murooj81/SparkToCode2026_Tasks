@@ -23,6 +23,11 @@ namespace Task6Slution
         }
 
         public override string ToString() => $"#{AccountNumber} {HolderName} - Balance: {Balance}";
+
+        internal double CheckBalance()
+        {
+            return Balance;
+        }
     }
 
     internal class Student
@@ -99,16 +104,16 @@ namespace Task6Slution
                         HandleCase1();
                         break;
                     case "2":
-                        HandleCase2();
+                        //HandleCase2();
                         break;
                     case "3":
-                        HandleCase3();
+                        //HandleCase3();
                         break;
                     case "4":
-                        HandleCase4();
+                       // HandleCase4();
                         break;
                     case "5":
-                        HandleCase5();
+                       // HandleCase5();
                         break;
                     case "20":
                         exit = true;
@@ -120,107 +125,52 @@ namespace Task6Slution
             }
         }
 
-        
+        // Case 1 – View Account Details
         static void HandleCase1()
+
         {
-            Console.WriteLine("\nAccount 1:");
-            Console.WriteLine($"#{account1.AccountNumber} {account1.HolderName} - Balance: {account1.Balance}");
-            Console.WriteLine("\nAccount 2:");
-            Console.WriteLine($"#{account2.AccountNumber} {account2.HolderName} - Balance: {account2.Balance}");
+            Console.WriteLine("1) " + account1.HolderName + " (Acc: " + account1.AccountNumber + ")");
+            Console.WriteLine("2) " + account2.HolderName + " (Acc: " + account2.AccountNumber + ")");
+            Console.Write("Select Account (1 or 2): ");
+            string input = Console.ReadLine();
+
+            BankAccount selectedAcc = null;
+            if (input == "1") selectedAcc = account1;
+            else if (input == "2") selectedAcc = account2;
+
+            if (selectedAcc == null)
+            {
+                Console.WriteLine(" Invalid selection.");
+                return;
+            }
+
+            double returnedBalance = selectedAcc.CheckBalance();
+            Console.WriteLine("Returned Value: " + returnedBalance.ToString("F3"));
         }
 
-        
-        static void HandleCase2()
-        {
-            Console.Write("Select student (1 or 2): ");
-            var sel = Console.ReadLine();
-            Student s = sel == "1" ? student1 : sel == "2" ? student2 : null;
-            if (s == null)
-            {
-                Console.WriteLine(" Invalid student selection.");
-                return;
-            }
 
-            Console.Write("Enter new address: ");
-            var newAddr = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(newAddr))
-            {
-                Console.WriteLine("Address cannot be empty.");
-                return;
-            }
 
-            s.Address = newAddr;
-            Console.WriteLine($"Updated: {s.Name} - Address: {s.Address}");
-        }
 
-        static void HandleCase3()
-        {
-            Console.Write("Select account (1 or 2): ");
-            var sel = Console.ReadLine();
-            BankAccount acc = sel == "1" ? account1 : sel == "2" ? account2 : null;
-            if (acc == null)
-            {
-                Console.WriteLine("Invalid account selection.");
-                return;
-            }
 
-            Console.Write("Enter deposit amount: ");
-            if (!double.TryParse(Console.ReadLine(), out double amount))
-            {
-                Console.WriteLine("Invalid amount.");
-                return;
-            }
 
-            try
-            {
-                acc.Deposit(amount);
-                Console.WriteLine($"Deposited {amount}. New balance: {acc.Balance}");
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                Console.WriteLine("Amount must be positive.");
-            }
-        }
 
-        // Withdraw from selected account (1 or 2)
-        static void HandleCase4()
-        {
-            Console.Write("Select account (1 or 2): ");
-            var sel = Console.ReadLine();
-            BankAccount acc = sel == "1" ? account1 : sel == "2" ? account2 : null;
-            if (acc == null)
-            {
-                Console.WriteLine("Invalid account selection.");
-                return;
-            }
 
-            Console.Write("Enter withdrawal amount: ");
-            if (!double.TryParse(Console.ReadLine(), out double amount))
-            {
-                Console.WriteLine("Invalid amount.");
-                return;
-            }
 
-            try
-            {
-                if (acc.Withdraw(amount))
-                    Console.WriteLine($"Withdrawn {amount}. New balance: {acc.Balance}");
-                else
-                    Console.WriteLine("Insufficient funds.");
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                Console.WriteLine("Amount must be positive.");
-            }
-        }
 
-        // Displays product details
-        static void HandleCase5()
-        {
-            Console.WriteLine("\nProduct 1:");
-            Console.WriteLine($"{product1.ProductName} - Price: {product1.Price} - Stock: {product1.StockQuantity}");
-            Console.WriteLine("\nProduct 2:");
-            Console.WriteLine($"{product2.ProductName} - Price: {product2.Price} - Stock: {product2.StockQuantity}");
-        }
+
+
+
+
+
+
+
+
+
+
+
     }
+
+
+
 }
+
