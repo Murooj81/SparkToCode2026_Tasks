@@ -490,7 +490,21 @@ namespace Task6Slution
             Console.WriteLine("Grade: " + selectedStu.Grade + " (" + status + ")");
         }
 
+        // Case 12 Account Health Status
+        static void HandleCase12()
+        {
+            Console.WriteLine("1) " + account1.HolderName + " (Balance: " + account1.Balance.ToString("F3") + ")");
+            Console.WriteLine("2) " + account2.HolderName + " (Balance: " + account2.Balance.ToString("F3") + ")");
+            Console.Write("Select Account (1 or 2): ");
+            string input = Console.ReadLine();
 
+            BankAccount selectedAcc = (input == "1") ? account1 : ((input == "2") ? account2 : null);
+            if (selectedAcc == null) { Console.WriteLine("Invalid selection."); return; }
+
+            if (selectedAcc.Balance < 50) { Console.WriteLine("Status: Low Balance"); }
+            else if (selectedAcc.Balance >= 50 && selectedAcc.Balance <= 1000) { Console.WriteLine("Status: Healthy"); }
+            else { Console.WriteLine("Status: Premium"); }
+        }
 
 
 
