@@ -448,7 +448,29 @@ namespace Task6Slution
             else { Console.WriteLine("Invalid numeric input."); }
         }
 
+        // Case 10 - Update Student Grade
+        static void HandleCase10()
+        {
+            Console.WriteLine("1) " + student1.Name + " (Current Grade: " + student1.Grade + ")");
+            Console.WriteLine("2) " + student2.Name + " (Current Grade: " + student2.Grade + ")");
+            Console.Write("Select Student (1 or 2): ");
+            string input = Console.ReadLine();
 
+            Student selectedStu = (input == "1") ? student1 : ((input == "2") ? student2 : null);
+            if (selectedStu == null) { Console.WriteLine("Invalid selection."); return; }
+
+            Console.Write("Enter new grade: ");
+            if (int.TryParse(Console.ReadLine(), out int newGrade))
+            {
+                if (newGrade >= 0 && newGrade <= 100)
+                {
+                    selectedStu.Grade = newGrade;
+                    Console.WriteLine("Grade updated to: " + selectedStu.Grade);
+                }
+                else { Console.WriteLine("Error: Grade must fall strictly within the 0-100 range."); }
+            }
+            else { Console.WriteLine("Error: Input is not a valid number."); }
+        }
 
 
 
