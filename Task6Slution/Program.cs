@@ -134,7 +134,7 @@ namespace Task6Slution
 
         private void LogTransaction()
         {
-            Console.WriteLine("📝 (Transaction logged securely)");
+            Console.WriteLine("(Transaction logged securely)");
         }
     }
 
@@ -240,10 +240,10 @@ namespace Task6Slution
                         HandleCase17();
                         break;
                     case "18":
-                        //HandleCase18();
+                        HandleCase18();
                         break;
                     case "19":
-                        //HandleCase19();
+                        HandleCase19();
                         break;
                     case "20":
                         exit = true;
