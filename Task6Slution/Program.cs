@@ -63,6 +63,14 @@ namespace Task6Slution
             if (quantity <= 0) throw new ArgumentOutOfRangeException(nameof(quantity), "Restock quantity must be positive.");
             StockQuantity += quantity;
         }
+
+        // Added: sell (reduce stock) with validation
+        public void Sell(int quantity)
+        {
+            if (quantity <= 0) throw new ArgumentOutOfRangeException(nameof(quantity), "Sell quantity must be positive.");
+            if (quantity > StockQuantity) throw new InvalidOperationException("Insufficient stock to complete the sale.");
+            StockQuantity -= quantity;
+        }
     }
 
     internal class Program
@@ -505,6 +513,38 @@ namespace Task6Slution
             else if (selectedAcc.Balance >= 50 && selectedAcc.Balance <= 1000) { Console.WriteLine("Status: Healthy"); }
             else { Console.WriteLine("Status: Premium"); }
         }
+
+        //Case 13- Bulk Sale With Revenue Calculation
+        static void HandleCase13()
+        {
+            Console.WriteLine("1) " + product1.ProductName + " (Stock: " + product1.StockQuantity + ")");
+            Console.WriteLine("2) " + product2.ProductName + " (Stock: " + product2.StockQuantity + ")");
+            Console.Write("Select Product (1 or 2): ");
+            string input = Console.ReadLine();
+
+            Product selectedProd = (input == "1") ? product1 : ((input == "2") ? product2 : null);
+            if (selectedProd == null) { Console.WriteLine("Invalid selection."); return; }
+
+            Console.Write("Enter quantity to sell: ");
+            if (int.TryParse(Console.ReadLine(), out int qty))
+            {
+                if (selectedProd.StockQuantity >= qty)
+                {
+                    selectedProd.Sell(qty);
+                    double revenue = qty * selectedProd.Price;
+                    Console.WriteLine("Sale Success! Total Revenue: " + revenue.ToString("F3"));
+                }
+                else
+                {
+                    int missing = qty - selectedProd.StockQuantity;
+                    Console.WriteLine("Out of Stock! Additional " + missing + " units are required to fulfill this purchase request.");
+                }
+            }
+            else { Console.WriteLine("Invalid numeric quantity."); }
+        }
+
+
+
 
 
 
