@@ -107,7 +107,7 @@ namespace Task6Slution
                         HandleCase2();
                         break;
                     case "3":
-                        //HandleCase3();
+                        HandleCase3();
                         break;
                     case "4":
                        // HandleCase4();
@@ -173,6 +173,35 @@ namespace Task6Slution
             Console.WriteLine("Confirmation: " + selectedStu.Name + "'s new address is " + selectedStu.Address);
         }
 
+        // Case 3 – Make a Deposit
+        static void HandleCase3()
+        {
+            Console.WriteLine("1) " + account1.HolderName + " (Acc: " + account1.AccountNumber + ")");
+            Console.WriteLine("2) " + account2.HolderName + " (Acc: " + account2.AccountNumber + ")");
+            Console.Write("Select Account (1 or 2): ");
+            string input = Console.ReadLine();
+
+            BankAccount selectedAcc = null;
+            if (input == "1") selectedAcc = account1;
+            else if (input == "2") selectedAcc = account2;
+
+            if (selectedAcc == null)
+            {
+                Console.WriteLine("Invalid selection.");
+                return;
+            }
+
+            Console.Write("Enter deposit amount: ");
+            if (double.TryParse(Console.ReadLine(), out double amount))
+            {
+                selectedAcc.Deposit(amount);
+                Console.WriteLine("Holder Name: " + selectedAcc.HolderName + " | Updated Balance: " + selectedAcc.Balance.ToString("F3"));
+            }
+            else
+            {
+                Console.WriteLine("Invalid numeric input.");
+            }
+        }
 
 
 
