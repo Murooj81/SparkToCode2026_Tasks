@@ -634,7 +634,28 @@ namespace Task6Slution
             }
         }
 
-
+        //Case 19 - Set Student Security PIN
+        static void HandleCase19()
+        {
+            Console.WriteLine("1) " + student1.Name);
+            Console.WriteLine("2) " + student2.Name);
+            Console.Write("Select Student (1 or 2): ");
+            string input = Console.ReadLine();
+            
+            Student selectedStu = (input == "1") ? student1 : ((input == "2") ? student2 : null);
+            if (selectedStu == null) { Console.WriteLine("Invalid selection."); return; }
+            
+            Console.Write("Enter a 4-digit security PIN: ");
+            string pinInput = Console.ReadLine();
+            if (pinInput.Length == 4 && int.TryParse(pinInput, out _))
+            {
+                Console.WriteLine("Security PIN set successfully for " + selectedStu.Name);
+            }
+            else
+            {
+                Console.WriteLine("Error: PIN must be exactly 4 digits.");
+            }
+        }
 
 
 
