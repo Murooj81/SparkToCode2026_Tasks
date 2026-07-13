@@ -119,7 +119,7 @@ namespace Task6Slution
                 Console.WriteLine("7. Compare Two Account Balances");
                 Console.WriteLine("8. Restock Product & Stock Level Check");
                 Console.WriteLine("9. Transfer Between Accounts");
-                Console.WriteLine("10. Update Student Grade (Validated)");
+                Console.WriteLine("10. Update Student Grade");
                 Console.WriteLine("11. Student Report Card");
                 Console.WriteLine("12. Account Health Status");
                 Console.WriteLine("13. Bulk Sale with Revenue");
@@ -415,7 +415,38 @@ namespace Task6Slution
             }
         
         }
-  
+
+        // Case 9-Transfer Between Accounts
+        static void HandleCase9()
+        {
+            Console.WriteLine("Select Source Account:");
+            Console.WriteLine("1) " + account1.HolderName);
+            Console.WriteLine("2) " + account2.HolderName);
+            string srcInput = Console.ReadLine();
+            BankAccount source = (srcInput == "1") ? account1 : ((srcInput == "2") ? account2 : null);
+
+            Console.WriteLine("Select Destination Account:");
+            Console.WriteLine("1) " + account1.HolderName);
+            Console.WriteLine("2) " + account2.HolderName);
+            string destInput = Console.ReadLine();
+            BankAccount dest = (destInput == "1") ? account1 : ((destInput == "2") ? account2 : null);
+
+            if (source == null || dest == null) { Console.WriteLine("Invalid account selected."); return; }
+            if (source == dest) { Console.WriteLine("Source and destination cannot be the same."); return; }
+
+            Console.Write("Enter transfer amount: ");
+            if (double.TryParse(Console.ReadLine(), out double amount))
+            {
+                if (source.Balance >= amount)
+                {
+                    source.Withdraw(amount);
+                    dest.Deposit(amount);
+                    Console.WriteLine("Transfer successful.");
+                }
+                else { Console.WriteLine("Failure: Insufficient balance in source account."); }
+            }
+            else { Console.WriteLine("Invalid numeric input."); }
+        }
 
 
 
