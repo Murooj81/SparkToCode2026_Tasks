@@ -114,13 +114,13 @@ namespace Task6Slution
                         exit = true;
                         break;
                     default:
-                        Console.WriteLine("❌ Invalid option.");
+                        Console.WriteLine(" Invalid option.");
                         break;
                 }
             }
         }
 
-        // Displays both accounts
+        
         static void HandleCase1()
         {
             Console.WriteLine("\nAccount 1:");
@@ -129,7 +129,7 @@ namespace Task6Slution
             Console.WriteLine($"#{account2.AccountNumber} {account2.HolderName} - Balance: {account2.Balance}");
         }
 
-        // Updates a student's address (choose student 1 or 2)
+        
         static void HandleCase2()
         {
             Console.Write("Select student (1 or 2): ");
@@ -137,7 +137,7 @@ namespace Task6Slution
             Student s = sel == "1" ? student1 : sel == "2" ? student2 : null;
             if (s == null)
             {
-                Console.WriteLine("❌ Invalid student selection.");
+                Console.WriteLine(" Invalid student selection.");
                 return;
             }
 
@@ -145,15 +145,14 @@ namespace Task6Slution
             var newAddr = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(newAddr))
             {
-                Console.WriteLine("❌ Address cannot be empty.");
+                Console.WriteLine("Address cannot be empty.");
                 return;
             }
 
             s.Address = newAddr;
-            Console.WriteLine($"✅ Updated: {s.Name} - Address: {s.Address}");
+            Console.WriteLine($"Updated: {s.Name} - Address: {s.Address}");
         }
 
-        // Deposit to selected account (1 or 2)
         static void HandleCase3()
         {
             Console.Write("Select account (1 or 2): ");
@@ -161,25 +160,25 @@ namespace Task6Slution
             BankAccount acc = sel == "1" ? account1 : sel == "2" ? account2 : null;
             if (acc == null)
             {
-                Console.WriteLine("❌ Invalid account selection.");
+                Console.WriteLine("Invalid account selection.");
                 return;
             }
 
             Console.Write("Enter deposit amount: ");
             if (!double.TryParse(Console.ReadLine(), out double amount))
             {
-                Console.WriteLine("❌ Invalid amount.");
+                Console.WriteLine("Invalid amount.");
                 return;
             }
 
             try
             {
                 acc.Deposit(amount);
-                Console.WriteLine($"✅ Deposited {amount}. New balance: {acc.Balance}");
+                Console.WriteLine($"Deposited {amount}. New balance: {acc.Balance}");
             }
             catch (ArgumentOutOfRangeException)
             {
-                Console.WriteLine("❌ Amount must be positive.");
+                Console.WriteLine("Amount must be positive.");
             }
         }
 
@@ -191,27 +190,27 @@ namespace Task6Slution
             BankAccount acc = sel == "1" ? account1 : sel == "2" ? account2 : null;
             if (acc == null)
             {
-                Console.WriteLine("❌ Invalid account selection.");
+                Console.WriteLine("Invalid account selection.");
                 return;
             }
 
             Console.Write("Enter withdrawal amount: ");
             if (!double.TryParse(Console.ReadLine(), out double amount))
             {
-                Console.WriteLine("❌ Invalid amount.");
+                Console.WriteLine("Invalid amount.");
                 return;
             }
 
             try
             {
                 if (acc.Withdraw(amount))
-                    Console.WriteLine($"✅ Withdrawn {amount}. New balance: {acc.Balance}");
+                    Console.WriteLine($"Withdrawn {amount}. New balance: {acc.Balance}");
                 else
-                    Console.WriteLine("❌ Insufficient funds.");
+                    Console.WriteLine("Insufficient funds.");
             }
             catch (ArgumentOutOfRangeException)
             {
-                Console.WriteLine("❌ Amount must be positive.");
+                Console.WriteLine("Amount must be positive.");
             }
         }
 
