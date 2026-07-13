@@ -41,6 +41,19 @@ namespace Task6Slution
 
     internal class Student
     {
+        private static int _totalStudents; // tracks total instances
+
+        public static int GetTotalStudentsCount()
+        {
+            return _totalStudents;
+        }
+
+        // Parameterless constructor increments counter for every instantiated Student.
+        public Student()
+        {
+            System.Threading.Interlocked.Increment(ref _totalStudents);
+        }
+
         public string Name { get; set; }
         public string Address { get; set; }
         public int Grade { get; set; }
@@ -180,7 +193,7 @@ namespace Task6Slution
                         HandleCase16();
                         break;
                     case "17":
-                        //HandleCase17();
+                        HandleCase17();
                         break;
                     case "18": 
                         //HandleCase18();
@@ -595,8 +608,12 @@ namespace Task6Slution
             brandNewAcc.CheckBalance();
         }
 
-
-
+        //Case 17 - Total Students Counter
+        static void HandleCase17()
+        {
+            int count = Student.GetTotalStudentsCount();
+            Console.WriteLine("Total instantiated students historically logged: " + count);
+        }
 
 
 
