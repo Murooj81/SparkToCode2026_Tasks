@@ -543,7 +543,30 @@ namespace Task6Slution
             else { Console.WriteLine("Invalid numeric quantity."); }
         }
 
+        // Case 14 - Scholarship Eligibility Check
+        static void HandleCase14()
+        {
+            Console.WriteLine("Select Student (1 or 2):");
+            string sInput = Console.ReadLine();
+            Student student = (sInput == "1") ? student1 : ((sInput == "2") ? student2 : null);
 
+            Console.WriteLine("Select Bank Account (1 or 2):");
+            string aInput = Console.ReadLine();
+            BankAccount account = (aInput == "1") ? account1 : ((aInput == "2") ? account2 : null);
+
+            if (student == null || account == null) { Console.WriteLine("Invalid setup selection."); return; }
+
+            if (student.Grade >= 80 && account.Balance >= 100)
+            {
+                Console.WriteLine("🎉 Status: Eligible");
+            }
+            else
+            {
+                Console.WriteLine("Status: Not Eligible due to failures:");
+                if (student.Grade < 80) Console.WriteLine(" - Grade is below 80 (" + student.Grade + ")");
+                if (account.Balance < 100) Console.WriteLine(" - Balance is below 100 (" + account.Balance.ToString("F3") + ")");
+            }
+        }
 
 
 
