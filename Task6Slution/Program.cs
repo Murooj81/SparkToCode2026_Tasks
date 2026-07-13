@@ -104,7 +104,7 @@ namespace Task6Slution
                         HandleCase1();
                         break;
                     case "2":
-                        //HandleCase2();
+                        HandleCase2();
                         break;
                     case "3":
                         //HandleCase3();
@@ -147,6 +147,32 @@ namespace Task6Slution
             double returnedBalance = selectedAcc.CheckBalance();
             Console.WriteLine("Returned Value: " + returnedBalance.ToString("F3"));
         }
+
+        // Case 2 – Update Student Address
+        static void HandleCase2()
+        {
+            Console.WriteLine("1) " + student1.Name + " (" + student1.Address + ")");
+            Console.WriteLine("2) " + student2.Name + " (" + student2.Address + ")");
+            Console.Write("Select Student (1 or 2): ");
+            string input = Console.ReadLine();
+
+            Student selectedStu = null;
+            if (input == "1") selectedStu = student1;
+            else if (input == "2") selectedStu = student2;
+
+            if (selectedStu == null)
+            {
+                Console.WriteLine("Invalid selection.");
+                return;
+            }
+
+            Console.Write("Enter new address: ");
+            string newAddress = Console.ReadLine();
+            selectedStu.Address = newAddress;
+
+            Console.WriteLine("Confirmation: " + selectedStu.Name + "'s new address is " + selectedStu.Address);
+        }
+
 
 
 
