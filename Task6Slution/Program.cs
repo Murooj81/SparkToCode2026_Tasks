@@ -472,7 +472,23 @@ namespace Task6Slution
             else { Console.WriteLine("Error: Input is not a valid number."); }
         }
 
+        // Case 11 - Student Report Card
+        static void HandleCase11()
+        {
+            Console.WriteLine("1) " + student1.Name);
+            Console.WriteLine("2) " + student2.Name);
+            Console.Write("Select Student (1 or 2): ");
+            string input = Console.ReadLine();
 
+            Student selectedStu = (input == "1") ? student1 : ((input == "2") ? student2 : null);
+            if (selectedStu == null) { Console.WriteLine("Invalid selection."); return; }
+
+            string status = (selectedStu.Grade >= 60) ? "Pass" : "Fail";
+            Console.WriteLine("\n--- REPORT CARD ---");
+            Console.WriteLine("Name: " + selectedStu.Name);
+            Console.WriteLine("Address: " + selectedStu.Address);
+            Console.WriteLine("Grade: " + selectedStu.Grade + " (" + status + ")");
+        }
 
 
 
