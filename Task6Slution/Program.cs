@@ -42,6 +42,11 @@ namespace Task6Slution
         public string ProductName { get; set; }
         public double Price { get; set; }
         public int StockQuantity { get; set; }
+
+        public double GetInventoryValue()
+        {
+            return Price * StockQuantity;
+        }
     }
 
     internal class Program
@@ -110,10 +115,10 @@ namespace Task6Slution
                         HandleCase3();
                         break;
                     case "4":
-                       // HandleCase4();
+                       HandleCase4();
                         break;
                     case "5":
-                       // HandleCase5();
+                        HandleCase5();
                         break;
                     case "20":
                         exit = true;
@@ -233,27 +238,38 @@ namespace Task6Slution
             }
         }
 
+        // Case 5 – View Product Details
+        static void HandleCase5()
+        {
+            Console.WriteLine("1) " + product1.ProductName);
+            Console.WriteLine("2) " + product2.ProductName);
+            Console.Write("Select Product (1 or 2): ");
+            string input = Console.ReadLine();
 
+            Product selectedProd = null;
+            if (input == "1") selectedProd = product1;
+            else if (input == "2") selectedProd = product2;
 
+            if (selectedProd == null)
+            {
+                Console.WriteLine("Invalid selection.");
+                return;
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            double totalInventoryValue = selectedProd.GetInventoryValue();
+            Console.WriteLine("Total Value: " + totalInventoryValue.ToString("F3"));
+     
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     }
-
-
-
 }
 
