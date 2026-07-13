@@ -306,6 +306,53 @@ namespace Task6Slution
             Console.WriteLine("Confirmation: Student registration complete.");
         }
 
+        // Case 7 - Compare Two Account Balances
+        static void HandleCase7()
+        {
+            if (account1.Balance > account2.Balance)
+            {
+                Console.WriteLine(account1.HolderName + " has a higher balance than " + account2.HolderName + ".");
+            }
+            else if (account2.Balance > account1.Balance)
+            {
+                Console.WriteLine(account2.HolderName + " has a higher balance than " + account1.HolderName + ".");
+            }
+            else
+            {
+                Console.WriteLine("Both account balances are equal.");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
