@@ -35,6 +35,15 @@ namespace Task6Slution
         public string Name { get; set; }
         public string Address { get; set; }
         public int Grade { get; set; }
+
+        // New: store email and provide a Register method called by HandleCase6
+        public string Email { get; set; }
+
+        public void Register(string email)
+        {
+            // simple assignment; add validation if needed
+            Email = email;
+        }
     }
 
     internal class Product
@@ -272,16 +281,39 @@ namespace Task6Slution
             Console.WriteLine("Total Value: " + totalInventoryValue.ToString("F3"));
         }
 
+        // Case 6 - Register a Student
+        static void HandleCase6()
+        {
+            Console.WriteLine("1) " + student1.Name);
+            Console.WriteLine("2) " + student2.Name);
+            Console.Write("Select Student (1 or 2): ");
+            string input = Console.ReadLine();
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
+            Student selectedStu = null;
+            if (input == "1") selectedStu = student1;
+            else if (input == "2") selectedStu = student2;
+
+            if (selectedStu == null)
+            {
+                Console.WriteLine("Invalid selection.");
+                return;
+            }
+
+            Console.Write("Enter email address: ");
+            string emailInput = Console.ReadLine();
+            selectedStu.Register(emailInput);
+
+            Console.WriteLine("Confirmation: Student registration complete.");
+        }
+
+
+
+
+
+
+
+
+
 
     }
 }
