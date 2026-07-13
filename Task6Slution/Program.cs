@@ -568,8 +568,29 @@ namespace Task6Slution
             }
         }
 
+        // Case 15 - Full Balance Top-Up Flow
+        static void HandleCase15()
+        {
+            Console.WriteLine("1) " + account1.HolderName + " (Balance: " + account1.Balance.ToString("F3") + ")");
+            Console.WriteLine("2) " + account2.HolderName + " (Balance: " + account2.Balance.ToString("F3") + ")");
+            Console.Write("Select Account (1 or 2): ");
+            string input = Console.ReadLine();
 
+            BankAccount selectedAcc = (input == "1") ? account1 : ((input == "2") ? account2 : null);
+            if (selectedAcc == null) { Console.WriteLine("Invalid selection."); return; }
 
+            if (selectedAcc.Balance < 50)
+            {
+                double before = selectedAcc.Balance;
+                double needed = 100 - before;
+                selectedAcc.Deposit(needed);
+                Console.WriteLine("Top-Up Triggered! Balance Before: " + before.ToString("F3") + " | Balance After: " + selectedAcc.Balance.ToString("F3"));
+            }
+            else
+            {
+                Console.WriteLine("No top-up is needed as balance matches or exceeds thresholds.");
+            }
+        }
 
 
 
