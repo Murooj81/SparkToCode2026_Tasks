@@ -8,28 +8,12 @@ namespace Task6Slution
         public string HolderName { get; set; }
         public double Balance { get; set; }
 
-        public BankAccount() { } // Default constructor
-
-        public void Deposit(double amount)
+        public bool IsOverdrawn
         {
-            if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount));
-            Balance += amount;
+            get { return Balance < 0; }
         }
 
-        public bool Withdraw(double amount)
-        {
-            if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount));
-            if (amount > Balance) return false;
-            Balance -= amount;
-            return true;
-        }
-
-        public override string ToString() => $"#{AccountNumber} {HolderName} - Balance: {Balance}";
-
-        internal double CheckBalance()
-        {
-            return Balance;
-        }
+        public BankAccount() { }
 
         public BankAccount(int accountNumber, string holderName, double balance)
         {
@@ -37,34 +21,80 @@ namespace Task6Slution
             HolderName = holderName;
             Balance = balance;
         }
+
+        public void Deposit(double amount)
+        {
+            Balance += amount;
+            SendEmail(); 
+        }
+
+        public void Withdraw(double amount)
+        {
+            if (Balance >= amount)
+            {
+                Balance -= amount;
+                SendEmail(); 
+            }
+            else
+            {
+                Console.WriteLine("Insufficient balance to process withdrawal.");
+            }
+        }
+
+        public double CheckBalance()
+        {
+            PrintInformation(); 
+            return Balance;
+        }
+
+        private void PrintInformation()
+        {
+            Console.WriteLine("Holder: " + HolderName + " | Balance: " + Balance.ToString("F3"));
+        }
+
+        private void SendEmail()
+        {
+            Console.WriteLine("(Email notification behavior triggered for Account #" + AccountNumber + ")");
+        }
     }
 
     internal class Student
     {
-        private static int _totalStudents; // tracks total instances
+        private static int _totalStudents = 0; 
 
-        public static int GetTotalStudentsCount()
-        {
-            return _totalStudents;
-        }
+        private string email; 
+        private int age;     
+        private string securityPin; 
 
-        // Parameterless constructor increments counter for every instantiated Student.
-        public Student()
+      
+        public string SecurityPin
         {
-            System.Threading.Interlocked.Increment(ref _totalStudents);
+            set { securityPin = value; }
         }
 
         public string Name { get; set; }
         public string Address { get; set; }
         public int Grade { get; set; }
 
-        // New: store email and provide a Register method called by HandleCase6
-        public string Email { get; set; }
-
-        public void Register(string email)
+        public Student()
         {
-            // simple assignment; add validation if needed
-            Email = email;
+            _totalStudents++;
+        }
+
+        public static int GetTotalStudentsCount()
+        {
+            return _totalStudents;
+        }
+
+        public void Register(string emailInput)
+        {
+            this.email = emailInput;
+            SendEmail();
+        }
+
+        private void SendEmail()
+        {
+            Console.WriteLine("(Email notification behavior triggered for Student registration)");
         }
     }
 
@@ -74,31 +104,45 @@ namespace Task6Slution
         public double Price { get; set; }
         public int StockQuantity { get; set; }
 
+        public Product() { }
+
         public double GetInventoryValue()
         {
+            PrintDetails(); 
             return Price * StockQuantity;
         }
 
-        // Added: allow increasing stock quantity
         public void Restock(int quantity)
         {
-            if (quantity <= 0) throw new ArgumentOutOfRangeException(nameof(quantity), "Restock quantity must be positive.");
             StockQuantity += quantity;
+            LogTransaction(); 
         }
 
-        // Added: sell (reduce stock) with validation
         public void Sell(int quantity)
         {
-            if (quantity <= 0) throw new ArgumentOutOfRangeException(nameof(quantity), "Sell quantity must be positive.");
-            if (quantity > StockQuantity) throw new InvalidOperationException("Insufficient stock to complete the sale.");
-            StockQuantity -= quantity;
+            if (StockQuantity >= quantity)
+            {
+                StockQuantity -= quantity;
+                LogTransaction(); 
+            }
+        }
+
+        private void PrintDetails()
+        {
+            Console.WriteLine("Product: " + ProductName + " | Price: " + Price.ToString("F3") + " | Stock: " + StockQuantity);
+        }
+
+        private void LogTransaction()
+        {
+            Console.WriteLine("📝 (Transaction logged securely)");
         }
     }
 
+
     internal class Program
     {
-        static BankAccount account1;
-        static BankAccount account2;
+        static Task6Slution.BankAccount account1;
+        static Task6Slution.BankAccount account2;
         static Student student1;
         static Student student2;
         static Product product1;
@@ -106,8 +150,8 @@ namespace Task6Slution
 
         static void Main(string[] args)
         {
-            account1 = new BankAccount(1163, "karim", 120);
-            account2 = new BankAccount(15203, "Ali", 63);
+            account1 = new Task6Slution.BankAccount(1163, "karim", 120);
+            account2 = new Task6Slution.BankAccount(15203, "Ali", 63);
 
             student1 = new() { Name = "Ali", Address = "Muscat", Grade = 65 };
             student2 = new() { Name = "Ahmed", Address = "Muscat", Grade = 70 };
@@ -641,10 +685,10 @@ namespace Task6Slution
             Console.WriteLine("2) " + student2.Name);
             Console.Write("Select Student (1 or 2): ");
             string input = Console.ReadLine();
-            
+
             Student selectedStu = (input == "1") ? student1 : ((input == "2") ? student2 : null);
             if (selectedStu == null) { Console.WriteLine("Invalid selection."); return; }
-            
+
             Console.Write("Enter a 4-digit security PIN: ");
             string pinInput = Console.ReadLine();
             if (pinInput.Length == 4 && int.TryParse(pinInput, out _))
@@ -656,17 +700,5 @@ namespace Task6Slution
                 Console.WriteLine("Error: PIN must be exactly 4 digits.");
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
