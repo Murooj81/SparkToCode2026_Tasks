@@ -99,6 +99,9 @@ namespace Task6Slution
                 Console.WriteLine("3. Make a Deposit");
                 Console.WriteLine("4. Make a Withdrawal");
                 Console.WriteLine("5. View Product Details");
+                Console.WriteLine("6. Register a Student");
+                Console.WriteLine("7. Compare Two Account Balances");
+                Console.WriteLine("8. Restock Product & Stock Level Check");
                 Console.WriteLine("20. Exit");
                 Console.Write("Select an option: ");
                 string choice = Console.ReadLine();
@@ -119,6 +122,15 @@ namespace Task6Slution
                         break;
                     case "5":
                         HandleCase5();
+                        break;
+                    case "6":
+                        //HandleCase6();
+                        break;
+                    case "7":
+                       // HandleCase7();
+                        break;
+                    case "8":
+                       // HandleCase8();
                         break;
                     case "20":
                         exit = true;
@@ -258,8 +270,9 @@ namespace Task6Slution
 
             double totalInventoryValue = selectedProd.GetInventoryValue();
             Console.WriteLine("Total Value: " + totalInventoryValue.ToString("F3"));
-     
         }
+
+
     
     
     
