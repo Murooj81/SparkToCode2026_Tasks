@@ -203,7 +203,35 @@ namespace Task6Slution
             }
         }
 
+        // Case 4 – Make a Withdrawal
+        static void HandleCase4()
+        {
+            Console.WriteLine("1) " + account1.HolderName + " (Acc: " + account1.AccountNumber + ")");
+            Console.WriteLine("2) " + account2.HolderName + " (Acc: " + account2.AccountNumber + ")");
+            Console.Write("Select Account (1 or 2): ");
+            string input = Console.ReadLine();
 
+            BankAccount selectedAcc = null;
+            if (input == "1") selectedAcc = account1;
+            else if (input == "2") selectedAcc = account2;
+
+            if (selectedAcc == null)
+            {
+                Console.WriteLine("Invalid selection.");
+                return;
+            }
+
+            Console.Write("Enter withdrawal amount: ");
+            if (double.TryParse(Console.ReadLine(), out double amount))
+            {
+                selectedAcc.Withdraw(amount);
+                Console.WriteLine("Updated Balance: " + selectedAcc.Balance.ToString("F3"));
+            }
+            else
+            {
+                Console.WriteLine("Invalid numeric input.");
+            }
+        }
 
 
 
