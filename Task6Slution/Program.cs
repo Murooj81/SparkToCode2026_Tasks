@@ -56,6 +56,13 @@ namespace Task6Slution
         {
             return Price * StockQuantity;
         }
+
+        // Added: allow increasing stock quantity
+        public void Restock(int quantity)
+        {
+            if (quantity <= 0) throw new ArgumentOutOfRangeException(nameof(quantity), "Restock quantity must be positive.");
+            StockQuantity += quantity;
+        }
     }
 
     internal class Program
@@ -127,7 +134,7 @@ namespace Task6Slution
                         HandleCase3();
                         break;
                     case "4":
-                       HandleCase4();
+                        HandleCase4();
                         break;
                     case "5":
                         HandleCase5();
@@ -136,10 +143,10 @@ namespace Task6Slution
                         //HandleCase6();
                         break;
                     case "7":
-                       // HandleCase7();
+                        // HandleCase7();
                         break;
                     case "8":
-                       // HandleCase8();
+                        // HandleCase8();
                         break;
                     case "20":
                         exit = true;
@@ -323,27 +330,49 @@ namespace Task6Slution
             }
         }
 
+        // Case 8 - Restock Product & Stock Level Check
+        static void HandleCase8()
+        {
+            Console.WriteLine("1) " + product1.ProductName + " (Current Stock: " + product1.StockQuantity + ")");
+            Console.WriteLine("2) " + product2.ProductName + " (Current Stock: " + product2.StockQuantity + ")");
+            Console.Write("Select Product (1 or 2): ");
+            string input = Console.ReadLine();
 
+            Product selectedProd = null;
+            if (input == "1") selectedProd = product1;
+            else if (input == "2") selectedProd = product2;
 
+            if (selectedProd == null)
+            {
+                Console.WriteLine("Invalid selection.");
+                return;
+            }
 
+            Console.Write("Enter restock quantity: ");
+            if (int.TryParse(Console.ReadLine(), out int qty))
+            {
+                selectedProd.Restock(qty);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                if (selectedProd.StockQuantity < 10)
+                {
+                    Console.WriteLine("Stock Level: Low");
+                }
+                else if (selectedProd.StockQuantity >= 10 && selectedProd.StockQuantity <= 49)
+                {
+                    Console.WriteLine("Stock Level: Moderate");
+                }
+                else
+                {
+                    Console.WriteLine("Stock Level: Well Stocked");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid numeric input.");
+            }
+        
+        }
+  
 
 
 
@@ -364,4 +393,3 @@ namespace Task6Slution
 
     }
 }
-
