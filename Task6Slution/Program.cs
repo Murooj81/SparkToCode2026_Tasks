@@ -168,34 +168,34 @@ namespace Task6Slution
                     case "8":
                         HandleCase8();
                         break;
-                    case "9": 
-                        HandleCase9(); 
+                    case "9":
+                        HandleCase9();
                         break;
-                    case "10": 
-                        HandleCase10(); 
+                    case "10":
+                        HandleCase10();
                         break;
-                    case "11": 
-                       HandleCase11(); 
-                       break;
+                    case "11":
+                        HandleCase11();
+                        break;
                     case "12":
-                       HandleCase12(); 
-                       break;
+                        HandleCase12();
+                        break;
                     case "13":
-                       HandleCase13();
-                       break;
+                        HandleCase13();
+                        break;
                     case "14":
                         HandleCase14();
                         break;
                     case "15":
                         HandleCase15();
                         break;
-                    case "16": 
+                    case "16":
                         HandleCase16();
                         break;
                     case "17":
                         HandleCase17();
                         break;
-                    case "18": 
+                    case "18":
                         //HandleCase18();
                         break;
                     case "19":
@@ -423,7 +423,7 @@ namespace Task6Slution
             {
                 Console.WriteLine("Invalid numeric input.");
             }
-        
+
         }
 
         // Case 9-Transfer Between Accounts
@@ -614,6 +614,34 @@ namespace Task6Slution
             int count = Student.GetTotalStudentsCount();
             Console.WriteLine("Total instantiated students historically logged: " + count);
         }
+
+        //Case 18 - Overdrawn Account Check
+        static void HandleCase18()
+        {
+            Console.WriteLine("1) " + account1.HolderName + " (Balance: " + account1.Balance.ToString("F3") + ")");
+            Console.WriteLine("2) " + account2.HolderName + " (Balance: " + account2.Balance.ToString("F3") + ")");
+            Console.Write("Select Account (1 or 2): ");
+            string input = Console.ReadLine();
+            BankAccount selectedAcc = (input == "1") ? account1 : ((input == "2") ? account2 : null);
+            if (selectedAcc == null) { Console.WriteLine("Invalid selection."); return; }
+            if (selectedAcc.Balance < 0)
+            {
+                Console.WriteLine("Alert: The account is overdrawn! Current Balance: " + selectedAcc.Balance.ToString("F3"));
+            }
+            else
+            {
+                Console.WriteLine("The account is in good standing. Current Balance: " + selectedAcc.Balance.ToString("F3"));
+            }
+        }
+
+
+
+
+
+
+
+
+
 
 
 
