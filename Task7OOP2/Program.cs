@@ -255,6 +255,49 @@
             }
         }
 
+        //case 6
+        static void FilterRoomsMenu()
+        {
+            Console.WriteLine("1) Show available rooms\n2) Filter by type\n3) Filter by max price\n4) Price statistics\n0) Back");
+            Console.Write("Choice: ");
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    var avail = rooms.Where(r => r.IsAvailable).OrderBy(r => r.PricePerNight);
+                    Console.WriteLine($"Found {avail.Count()} matches:");
+                    foreach (var r in avail) r.DisplayRoom();
+                    break;
+
+                case "2":
+                    Console.Write("Enter Type: ");
+                    string type = Console.ReadLine().ToLower();
+                    var byType = rooms.Where(r => r.RoomType.ToLower() == type);
+                    Console.WriteLine($"Found {byType.Count()} matches:");
+                    foreach (var r in byType) r.DisplayRoom();
+                    break;
+
+                case "3":
+                    Console.Write("Enter Max Budget: ");
+                    if (double.TryParse(Console.ReadLine(), out double max))
+                    {
+                        var budget = rooms.Where(r => r.IsAvailable && r.PricePerNight <= max).OrderBy(r => r.PricePerNight);
+                        Console.WriteLine($"Found {budget.Count()} matches:");
+                        foreach (var r in budget) r.DisplayRoom();
+                    }
+                    break;
+
+                case "4":
+                    if (!rooms.Any()) return;
+                    Console.WriteLine($"Total: {rooms.Count()}");
+                    Console.WriteLine($"Available: {rooms.Count(r => r.IsAvailable)}");
+                    Console.WriteLine($"Average: OMR {rooms.Average(r => r.PricePerNight):F2}");
+                    Console.WriteLine($"Min: OMR {rooms.Min(r => r.PricePerNight):F2}");
+                    Console.WriteLine($"Max: OMR {rooms.Max(r => r.PricePerNight):F2}");
+                    break;
+            } 
+        }
 
 
 
