@@ -203,6 +203,37 @@
             Console.WriteLine($"Guest {name} registered successfully! Total guests: {guests.Count}");
         }
 
+        // Case 3
+        static void BookRoom()
+        {
+            Console.Write("Enter Guest ID: ");
+            string gId = Console.ReadLine().ToUpper();
+            Console.Write("Enter Room Number: ");
+            if (!int.TryParse(Console.ReadLine(), out int rNum)) return;
+
+            Guest guest = guests.FirstOrDefault(g => g.GuestId.ToUpper() == gId);
+            Room room = rooms.FirstOrDefault(r => r.RoomNumber == rNum);
+
+            if (guest == null || room == null)
+            {
+                Console.WriteLine("Error: Guest or Room not found.");
+                return;
+            }
+
+            if (!room.IsAvailable)
+            {
+                Console.WriteLine("Room is already booked.");
+                return;
+            }
+
+            room.IsAvailable = false;
+            guest.RoomNumber = room.RoomNumber.ToString();
+
+            Console.WriteLine("\n--- Booking Confirmed ---");
+            Console.WriteLine($"Guest: {guest.GuestName}");
+            Console.WriteLine($"Room: #{room.RoomNumber} ({room.RoomType})");
+            Console.WriteLine($"Total Bill: OMR {guest.CalculateTotalCost(room.PricePerNight):F2}");
+        }
 
 
 
