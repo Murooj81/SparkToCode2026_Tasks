@@ -392,6 +392,31 @@
 
         }
 
+        // Case 13
+        static void ExtendStay()
+        {
+            Console.Write("Enter Guest ID to Extend Stay: ");
+            string gId = Console.ReadLine().ToUpper();
+            Guest guest = guests.FirstOrDefault(g => g.GuestId.ToUpper() == gId);
+            if (guest == null)
+            {
+                Console.WriteLine("Guest not found.");
+                return;
+            }
+            Console.Write($"Current Total Nights: {guest.TotalNights}. Enter Additional Nights: ");
+            if (!int.TryParse(Console.ReadLine(), out int additionalNights) || additionalNights <= 0)
+            {
+                Console.WriteLine("Error: Additional nights must be a positive integer.");
+                return;
+            }
+            guest.TotalNights += additionalNights;
+            Console.WriteLine($"Guest {guest.GuestName}'s stay extended. New Total Nights: {guest.TotalNights}");
+
+        }
+
+
+
+
 
 
 
