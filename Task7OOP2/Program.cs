@@ -235,6 +235,16 @@
             Console.WriteLine($"Total Bill: OMR {guest.CalculateTotalCost(room.PricePerNight):F2}");
         }
 
+        // Case 4
+        static void ViewAllRooms()
+        {
+            Console.WriteLine("\n--- All Rooms ---");
+            foreach (var room in rooms)
+            {
+                room.DisplayRoom();
+            }
+        }
+
 
 
 
