@@ -148,7 +148,34 @@
 
         }
 
+        static void AddRoom()
+        {
+            Console.Write("Enter Room Number: ");
+            if (!int.TryParse(Console.ReadLine(), out int num) || num <= 0)
+            {
+                Console.WriteLine("Error: Room number must be a positive integer.");
+                return;
+            }
 
+            if (rooms.Any(r => r.RoomNumber == num))
+            {
+                Console.WriteLine("Error: Room number already exists.");
+                return;
+            }
+
+            Console.Write("Enter Room Type (Single/Double/Suite): ");
+            string type = Console.ReadLine();
+
+            Console.Write("Enter Price Per Night: ");
+            if (!double.TryParse(Console.ReadLine(), out double price) || price <= 0)
+            {
+                Console.WriteLine("Error: Price must be a positive decimal.");
+                return;
+            }
+
+            rooms.Add(new Room(num, type, price));
+            Console.WriteLine($"Room {num} added successfully! Total rooms: {rooms.Count}");
+        }
 
 
 
