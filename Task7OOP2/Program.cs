@@ -1,6 +1,6 @@
 ﻿namespace Task7OOP2
 {
-
+    // Room class
     internal class Room
     {
         public int RoomNumber { get; set; }
@@ -23,6 +23,7 @@
         }
     }
 
+    // Guest class
     internal class Guest
     {
         public string GuestId { get; set; }
@@ -381,8 +382,15 @@
             }
         }
 
+        // Case 12
+        static void DeleteUnavailableRooms()
+        {
+            int initialCount = rooms.Count;
+            rooms.RemoveAll(r => !r.IsAvailable);
+            int removedCount = initialCount - rooms.Count;
+            Console.WriteLine($"Removed {removedCount} unavailable rooms. Total rooms now: {rooms.Count}");
 
-
+        }
 
 
 
