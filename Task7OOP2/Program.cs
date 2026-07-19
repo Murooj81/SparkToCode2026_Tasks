@@ -311,15 +311,26 @@
             Console.WriteLine($"Booked Rooms: {bookedRooms}");
         }
 
+        // Case 8
+        static void UpdatePrice()
+        {
+            Console.Write("Enter Room Number: ");
+            if (!int.TryParse(Console.ReadLine(), out int roomNum)) return;
+            Room room = rooms.FirstOrDefault(r => r.RoomNumber == roomNum);
+            if (room == null)
+            {
+                Console.WriteLine("Room not found.");
+                return;
+            }
+            Console.Write($"Current Price: OMR {room.PricePerNight:F2}. Enter New Price: ");
+            if (!double.TryParse(Console.ReadLine(), out double newPrice) || newPrice <= 0)
+            {
+                Console.WriteLine("Error: Price must be a positive decimal.");
+                return;
+            }
+            room.PricePerNight = newPrice;
+            Console.WriteLine($"Room #{room.RoomNumber} price updated to OMR {newPrice:F2}.");
 
-
-
-
-
-
-
-
-
-
+        }
     }
 }
