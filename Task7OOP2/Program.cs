@@ -360,5 +360,32 @@
                 Console.WriteLine($"Type: {item.Type} | Count: {item.Count}");
             }
         }
+
+        // Case 11
+        static void CheckOutGuest()
+        {
+            Console.Write("Enter Guest ID to Check Out: ");
+            string gId = Console.ReadLine().ToUpper();
+            Guest guest = guests.FirstOrDefault(g => g.GuestId.ToUpper() == gId);
+            if (guest == null)
+            {
+                Console.WriteLine("Guest not found.");
+                return;
+            }
+            Room room = rooms.FirstOrDefault(r => r.RoomNumber.ToString() == guest.RoomNumber);
+            if (room != null)
+            {
+                room.IsAvailable = true;
+                guest.RoomNumber = "Not Assigned";
+                Console.WriteLine($"Guest {guest.GuestName} has checked out. Room #{room.RoomNumber} is now available.");
+            }
+        }
+
+
+
+
+
+
+
     }
 }
