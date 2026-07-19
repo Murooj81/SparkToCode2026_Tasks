@@ -413,6 +413,24 @@
             Console.WriteLine($"Guest {guest.GuestName}'s stay extended. New Total Nights: {guest.TotalNights}");
 
         }
+        // Case 14
+        static void HighestRevenueBooking()
+        {
+            var active = guests.Where(g => g.RoomNumber != "Not Assigned");
+
+            if (!active.Any())
+            {
+                Console.WriteLine("No active bookings recorded.");
+                return;
+            }
+
+            var topBooking = active.OrderByDescending(g => g.CalculateTotalCost(rooms.First(r => r.RoomNumber.ToString() == g.RoomNumber).PricePerNight))
+                                   .Take(1)
+                                   .FirstOrDefault();
+
+            double rate = rooms.First(r => r.RoomNumber.ToString() == topBooking.RoomNumber).PricePerNight;
+            Console.WriteLine($"Highest Revenue Booking: {topBooking.GuestName} (Room {topBooking.RoomNumber}) - OMR {topBooking.CalculateTotalCost(rate):F2}");
+        }
 
 
 
