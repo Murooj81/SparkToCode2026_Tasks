@@ -432,11 +432,27 @@
             Console.WriteLine($"Highest Revenue Booking: {topBooking.GuestName} (Room {topBooking.RoomNumber}) - OMR {topBooking.CalculateTotalCost(rate):F2}");
         }
 
+        // Case 15
+        static void PaginateGuests()
+        {
+            int size = 3;
+            int totalPages = (int)Math.Ceiling((double)guests.Count / size);
 
+            Console.Write($"Enter Page Number (1 to {Math.Max(1, totalPages)}): ");
+            if (!int.TryParse(Console.ReadLine(), out int page) || page <= 0) return;
 
+            if (page > totalPages && guests.Any())
+            {
+                Console.WriteLine("That page does not exist.");
+                return;
+            }
 
-
-
-
+            var items = guests.Skip((page - 1) * size).Take(size);
+            Console.WriteLine($"\n--- Page {page} of {Math.Max(1, totalPages)} ---");
+            foreach (var g in items)
+            {
+                g.DisplayGuest();
+            }
+        }
     }
 }
