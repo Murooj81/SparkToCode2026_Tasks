@@ -59,7 +59,7 @@
 
         static void Main(string[] args)
         {
-           
+
             rooms.Add(new Room(101, "Single", 25.00));
             rooms.Add(new Room(102, "Single", 25.00));
             rooms.Add(new Room(201, "Double", 45.00));
@@ -71,13 +71,20 @@
             while (loop)
             {
                 Console.WriteLine("\n--- GRAND VISTA HOTEL MANAGEMENT SYSTEM ---");
-                Console.WriteLine("1. Add New Room                 9. Guest Lookup by Name");
-                Console.WriteLine("2. Register New Guest          10. Room Type Breakdown Report");
-                Console.WriteLine("3. Book a Room for a Guest     11. Check Out a Guest");
-                Console.WriteLine("4. View All Rooms              12. Remove Unavailable Rooms");
-                Console.WriteLine("5. View All Guests             13. Extend Guest Stay");
-                Console.WriteLine("6. Search & Filter Rooms       14. Highest Revenue Booking");
-                Console.WriteLine("5. Guest Pagination Viewer     0. Exit");
+                Console.WriteLine("1. Add New Room ");
+                Console.WriteLine("2. Register New Guest");
+                Console.WriteLine("3. Book a Room for a Guest ");
+                Console.WriteLine("4. View All Rooms");
+                Console.WriteLine("5. View All Guests");
+                Console.WriteLine("6. Search & Filter Rooms ");
+                Console.WriteLine("5. Guest Pagination Viewer");
+                Console.WriteLine("9. Guest Lookup by Name");
+                Console.WriteLine("10. Room Type Breakdown Report");
+                Console.WriteLine("11. Check Out a Guest");
+                Console.WriteLine("12. Remove Unavailable Rooms");
+                Console.WriteLine("13. Extend Guest Stay");
+                Console.WriteLine("14. Highest Revenue Booking");
+                Console.WriteLine("0. Exit");
                 Console.Write("Enter choice: ");
 
                 string choice = Console.ReadLine();
@@ -88,151 +95,103 @@
                     case "1":
                         //AddRoom(); 
                         break;
-                    case "2": 
-                       // RegisterGuest(); 
+                    case "2":
+                        // RegisterGuest(); 
                         break;
                     case "3":
-                       // BookRoom();
+                        // BookRoom();
                         break;
                     case "4":
-                       // ViewAllRooms(); 
+                        // ViewAllRooms(); 
                         break;
-                    case "5": 
+                    case "5":
                         //ViewAllGuests();
                         break;
                     case "6":
-                       // FilterRoomsMenu();
+                        // FilterRoomsMenu();
                         break;
                     case "7":
                         //ShowStatistics(); 
                         break;
-                    case "8": 
+                    case "8":
                         //UpdatePrice(); 
                         break;
-                    case "9": 
-                       // SearchGuestByName(); 
+                    case "9":
+                        // SearchGuestByName(); 
                         break;
-                    case "10": 
-                       // TypeBreakdownReport();
+                    case "10":
+                        // TypeBreakdownReport();
                         break;
-                    case "11": 
-                       // CheckOutGuest();
+                    case "11":
+                        // CheckOutGuest();
                         break;
-                    case "12": 
-                       // DeleteUnavailableRooms();
+                    case "12":
+                        // DeleteUnavailableRooms();
                         break;
                     case "13":
-                       // ExtendStay(); 
+                        // ExtendStay(); 
                         break;
-                    case "14": 
-                       // HighestRevenueBooking();
+                    case "14":
+                        // HighestRevenueBooking();
                         break;
                     case "15":
-                      //  PaginateGuests();
+                        //  PaginateGuests();
                         break;
-                    case "0": loop = false; Console.WriteLine("Exiting program.");
+                    case "0":
+                        loop = false; Console.WriteLine("Exiting program.");
                         break;
-                    default: Console.WriteLine("Invalid option, try again.");
+                    default:
+                        Console.WriteLine("Invalid option, try again.");
                         break;
                 }
             }
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
