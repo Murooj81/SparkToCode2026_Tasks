@@ -332,5 +332,20 @@
             Console.WriteLine($"Room #{room.RoomNumber} price updated to OMR {newPrice:F2}.");
 
         }
+
+        // Case 9
+        static void SearchGuestByName()
+        {
+            Console.Write("Enter Guest Name to Search: ");
+            string name = Console.ReadLine().ToLower();
+            var matches = guests.Where(g => g.GuestName.ToLower().Contains(name)).ToList();
+            if (matches.Count == 0)
+            {
+                Console.WriteLine("No guests found with that name.");
+                return;
+            }
+            Console.WriteLine($"Found {matches.Count} matches:");
+            foreach (var g in matches) g.DisplayGuest();
+        }
     }
 }
