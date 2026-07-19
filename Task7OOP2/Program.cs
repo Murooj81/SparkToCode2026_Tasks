@@ -245,44 +245,15 @@
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        // Case 5
+        static void ViewAllGuests()
+        {
+            Console.WriteLine("\n--- All Guests ---");
+            foreach (var guest in guests)
+            {
+                guest.DisplayGuest();
+            }
+        }
 
 
 
