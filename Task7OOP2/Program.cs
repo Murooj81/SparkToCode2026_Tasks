@@ -347,5 +347,18 @@
             Console.WriteLine($"Found {matches.Count} matches:");
             foreach (var g in matches) g.DisplayGuest();
         }
+
+        //case 10
+        static void TypeBreakdownReport()
+        {
+            var breakdown = rooms.GroupBy(r => r.RoomType)
+                                 .Select(g => new { Type = g.Key, Count = g.Count() })
+                                 .ToList();
+            Console.WriteLine("\n--- Room Type Breakdown ---");
+            foreach (var item in breakdown)
+            {
+                Console.WriteLine($"Type: {item.Type} | Count: {item.Count}");
+            }
+        }
     }
 }
