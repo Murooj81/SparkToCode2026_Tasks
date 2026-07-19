@@ -296,8 +296,21 @@
                     Console.WriteLine($"Min: OMR {rooms.Min(r => r.PricePerNight):F2}");
                     Console.WriteLine($"Max: OMR {rooms.Max(r => r.PricePerNight):F2}");
                     break;
-            } 
+            }
         }
+
+        // Case 7
+        static void ShowStatistics()
+        {
+            int totalRooms = rooms.Count;
+            int availableRooms = rooms.Count(r => r.IsAvailable);
+            int bookedRooms = totalRooms - availableRooms;
+            Console.WriteLine("\n--- Room Statistics ---");
+            Console.WriteLine($"Total Rooms: {totalRooms}");
+            Console.WriteLine($"Available Rooms: {availableRooms}");
+            Console.WriteLine($"Booked Rooms: {bookedRooms}");
+        }
+
 
 
 
