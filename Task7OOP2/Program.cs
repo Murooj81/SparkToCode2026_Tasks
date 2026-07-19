@@ -148,6 +148,8 @@
 
         }
 
+
+        // Case 1
         static void AddRoom()
         {
             Console.Write("Enter Room Number: ");
@@ -175,6 +177,30 @@
 
             rooms.Add(new Room(num, type, price));
             Console.WriteLine($"Room {num} added successfully! Total rooms: {rooms.Count}");
+        }
+
+        // Case 2
+        static void RegisterGuest()
+        {
+            Console.Write("Enter Guest ID: ");
+            string id = Console.ReadLine();
+            if (guests.Any(g => g.GuestId == id))
+            {
+                Console.WriteLine("Error: Guest ID already exists.");
+                return;
+            }
+            Console.Write("Enter Guest Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Enter Check-in Date (YYYY-MM-DD): ");
+            string checkInDate = Console.ReadLine();
+            Console.Write("Enter Total Nights: ");
+            if (!int.TryParse(Console.ReadLine(), out int nights) || nights <= 0)
+            {
+                Console.WriteLine("Error: Total nights must be a positive integer.");
+                return;
+            }
+            guests.Add(new Guest(id, name, checkInDate, nights));
+            Console.WriteLine($"Guest {name} registered successfully! Total guests: {guests.Count}");
         }
 
 
@@ -219,6 +245,13 @@
 
 
 
-    }
 
+
+
+
+
+
+
+
+    }
 }
